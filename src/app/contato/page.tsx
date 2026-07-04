@@ -46,7 +46,11 @@ export default function Contato() {
         <div style={{ background: "#F5F0EA", padding: "80px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <FadeIn delay={100}>
             <p style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#3D6070", marginBottom: 32 }}>Formulário de contato</p>
-            <form style={{ display: "flex", flexDirection: "column" }}>
+           <form 
+  action="https://formspree.io/f/xykqoyzv" 
+  method="POST"
+  style={{ display: "flex", flexDirection: "column" }}
+>
               {[
                 { label: "Seu nome", type: "text", placeholder: "Nome completo" },
                 { label: "E-mail", type: "email", placeholder: "seu@email.com.br" },
