@@ -76,7 +76,8 @@ export default function Contato() {
                     transition: "border-color 200ms"
                     }}
                     />
-                    onBlur={e => { (e.target as HTMLInputElement).style.borderBottomColor = "#C0B9AF"; }} />
+                    onBlur={e => { (e.target as HTMLInputElement).style.borderBottomColor = "#C0B9AF"; }} 
+                    />
                 </div>
               ))}
               <div style={{ marginBottom: 22 }}>
