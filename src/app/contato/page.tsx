@@ -46,7 +46,11 @@ export default function Contato() {
         <div style={{ background: "#F5F0EA", padding: "80px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <FadeIn delay={100}>
             <p style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#3D6070", marginBottom: 32 }}>Formulário de contato</p>
-            <form style={{ display: "flex", flexDirection: "column" }}>
+            <form 
+            action="https://formspree.io/f/xykqoyzv"
+             method="POST"
+              style={{ display: "flex", flexDirection: "column" }}
+              >
               {[
                 { label: "Seu nome", type: "text", placeholder: "Nome completo" },
                 { label: "E-mail", type: "email", placeholder: "seu@email.com.br" },
@@ -55,14 +59,30 @@ export default function Contato() {
               ].map(f => (
                 <div key={f.label} style={{ marginBottom: 22 }}>
                   <label style={{ display: "block", fontFamily: "'Inter',sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C8377", marginBottom: 6 }}>{f.label}</label>
-                  <input type={f.type} placeholder={f.placeholder} style={{ width: "100%", background: "transparent", border: "none", borderBottom: "1.5px solid #C0B9AF", padding: "9px 0", fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 300, color: "#1A1A18", outline: "none", transition: "border-color 200ms" }}
-                    onFocus={e => { (e.target as HTMLInputElement).style.borderBottomColor = "#1C3A4A"; }}
+                  <input
+                   name={f.label}
+                   type={f.type}
+                   placeholder={f.placeholder}
+                   style={{
+                    width: "100%",
+                    background: "transparent",
+                    border: "none",borderBottom: "1.5px solid #C0B9AF",
+                    padding: "9px 0",
+                    fontFamily: "'Inter',sans-serif",
+                    fontSize: 15,
+                    fontWeight: 300,
+                    color: "#1A1A18",
+                    outline: "none",
+                    transition: "border-color 200ms"
+                    }}
+                    />
                     onBlur={e => { (e.target as HTMLInputElement).style.borderBottomColor = "#C0B9AF"; }} />
                 </div>
               ))}
               <div style={{ marginBottom: 22 }}>
                 <label style={{ display: "block", fontFamily: "'Inter',sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C8377", marginBottom: 6 }}>O que você precisa</label>
-                <textarea rows={4} placeholder="Conte brevemente sobre seu projeto ou dúvida…" style={{ width: "100%", background: "transparent", border: "none", borderBottom: "1.5px solid #C0B9AF", padding: "9px 0", fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 300, color: "#1A1A18", outline: "none", resize: "none", transition: "border-color 200ms" }}
+                <textarea name="mensagem"
+                 rows={4} placeholder="Conte brevemente sobre seu projeto ou dúvida…" style={{ width: "100%", background: "transparent", border: "none", borderBottom: "1.5px solid #C0B9AF", padding: "9px 0", fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 300, color: "#1A1A18", outline: "none", resize: "none", transition: "border-color 200ms" }}
                   onFocus={e => { (e.target as HTMLTextAreaElement).style.borderBottomColor = "#1C3A4A"; }}
                   onBlur={e => { (e.target as HTMLTextAreaElement).style.borderBottomColor = "#C0B9AF"; }} />
               </div>
@@ -81,4 +101,3 @@ export default function Contato() {
     </section>
   );
 }
-<h1>TESTE FORMULARIO AQUI</h1>
