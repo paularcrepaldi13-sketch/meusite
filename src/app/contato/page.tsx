@@ -1,6 +1,6 @@
 "use client";
-import { FadeIn, Eyebrow, Rule, Sec } from "@/components/ui";
-import { CheckCircle2 } from "lucide-react";
+import { FadeIn, Eyebrow, Rule } from "@/components/ui";
+import { CheckCircle2, MessageCircle } from "lucide-react";
 
 export default function Contato() {
   return (
@@ -30,9 +30,8 @@ export default function Contato() {
               ))}
             </div>
             {[
-              { label: "E-mail", value: "contato@paulacrepaldi.com.br" },
-              { label: "Instagram", value: "@paularcrp" },
-              { label: "Londrina · PR", value: "Atendimento remoto em todo o Brasil" },
+              { label: "Instagram", value: "@paulacrepaldi" },
+              { label: "Localização", value: "Londrina · PR · Atendimento remoto em todo o Brasil" },
             ].map(c => (
               <div key={c.label} style={{ marginBottom: 18 }}>
                 <p style={{ fontFamily: "'Inter',sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C8377", margin: "0 0 3px" }}>{c.label}</p>
@@ -42,60 +41,55 @@ export default function Contato() {
           </FadeIn>
         </div>
 
-        {/* Right — form */}
-        <div style={{ background: "#F5F0EA", padding: "80px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        {/* Right — WhatsApp CTA */}
+        <div style={{ background: "#F5F0EA", padding: "80px 56px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
           <FadeIn delay={100}>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#3D6070", marginBottom: 32 }}>Formulário de contato</p>
-            <form 
-            action="https://formspree.io/f/xykqoyzv"
-             method="POST"
-              style={{ display: "flex", flexDirection: "column" }}
+            <div style={{ maxWidth: 380 }}>
+              <div style={{ width: 72, height: 72, borderRadius: "50%", background: "#1C3A4A", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 28px" }}>
+                <MessageCircle size={32} color="#F5F0EA" />
+              </div>
+
+              <h2 style={{ fontFamily: "'Inter',sans-serif", fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 700, color: "#1A1A18", lineHeight: 1.2, letterSpacing: "-0.03em", margin: "0 0 14px" }}>
+                Fale direto pelo WhatsApp
+              </h2>
+
+              <p style={{ fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 300, color: "#5A5A57", lineHeight: 1.8, margin: "0 0 36px" }}>
+                Clique no botão abaixo e me mande uma mensagem. Respondo pessoalmente, sem bots, sem demora.
+              </p>
+
+              <a
+                href="https://wa.me/5543991650923"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 10,
+                  width: "100%",
+                  background: "#1C3A4A",
+                  color: "#F5F0EA",
+                  fontFamily: "'Inter',sans-serif",
+                  fontSize: 15,
+                  fontWeight: 600,
+                  letterSpacing: "0.02em",
+                  padding: "16px 28px",
+                  borderRadius: 8,
+                  textDecoration: "none",
+                  transition: "background 220ms ease",
+                  marginBottom: 14,
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#2A4D5E"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#1C3A4A"; }}
               >
-              {[
-                { label: "Seu nome", type: "text", placeholder: "Nome completo" },
-                { label: "E-mail", type: "email", placeholder: "seu@email.com.br" },
-                { label: "Área de atuação", type: "text", placeholder: "ex: psicóloga, fisioterapeuta, empresa…" },
-                { label: "Como me encontrou", type: "text", placeholder: "Instagram, indicação, Google…" },
-              ].map(f => (
-                <div key={f.label} style={{ marginBottom: 22 }}>
-                  <label style={{ display: "block", fontFamily: "'Inter',sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C8377", marginBottom: 6 }}>{f.label}</label>
-                  <input
-                   name={f.label}
-                   type={f.type}
-                   placeholder={f.placeholder}
-                   style={{
-                    width: "100%",
-                    background: "transparent",
-                    border: "none",borderBottom: "1.5px solid #C0B9AF",
-                    padding: "9px 0",
-                    fontFamily: "'Inter',sans-serif",
-                    fontSize: 15,
-                    fontWeight: 300,
-                    color: "#1A1A18",
-                    outline: "none",
-                    transition: "border-color 200ms"
-                    }}
-                    />
-                    onBlur={e => { (e.target as HTMLInputElement).style.borderBottomColor = "#C0B9AF"; }} 
-                    />
-                </div>
-              ))}
-              <div style={{ marginBottom: 22 }}>
-                <label style={{ display: "block", fontFamily: "'Inter',sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C8377", marginBottom: 6 }}>O que você precisa</label>
-                <textarea name="mensagem"
-                 rows={4} placeholder="Conte brevemente sobre seu projeto ou dúvida…" style={{ width: "100%", background: "transparent", border: "none", borderBottom: "1.5px solid #C0B9AF", padding: "9px 0", fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 300, color: "#1A1A18", outline: "none", resize: "none", transition: "border-color 200ms" }}
-                  onFocus={e => { (e.target as HTMLTextAreaElement).style.borderBottomColor = "#1C3A4A"; }}
-                  onBlur={e => { (e.target as HTMLTextAreaElement).style.borderBottomColor = "#C0B9AF"; }} />
-              </div>
-              <div style={{ marginTop: 8, paddingTop: 20, borderTop: "1px solid #D8D3CB" }}>
-                <button type="submit" style={{ width: "100%", background: "#1C3A4A", color: "#F5F0EA", fontFamily: "'Inter',sans-serif", fontSize: 14, fontWeight: 600, letterSpacing: "0.04em", padding: "15px", borderRadius: 6, border: "none", cursor: "pointer", transition: "background 220ms" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#2A4D5E"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1C3A4A"; }}>
-                  Enviar mensagem →
-                </button>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, color: "#8C8377", textAlign: "center", margin: "12px 0 0", lineHeight: 1.6 }}>Retorno em até 48h úteis. Sem spam.</p>
-              </div>
-            </form>
+                <MessageCircle size={18} />
+                Iniciar conversa no WhatsApp
+              </a>
+
+              <p style={{ fontFamily: "'Inter',sans-serif", fontSize: 12, color: "#8C8377", margin: 0, lineHeight: 1.6 }}>
+                Retorno em até 24h úteis.
+              </p>
+            </div>
           </FadeIn>
         </div>
       </div>
